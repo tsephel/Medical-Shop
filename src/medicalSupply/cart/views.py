@@ -1,7 +1,92 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
+from store.models import Product
+from .models import Cart, CartItem
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 
-def cart(request):
+# method to get the session Id
+def _cartId(request):
+    cart = request.session.session_key # getting the session_id which is cart_id
 
-    return render(request, 'store/cart.html')
+    # if no session than create a new session
+    if not cart:
+        cart = request.session.create()
+    return cart
+
+#method to add the item to cart
+def add_to_cart(request, product_id):
+    product = Product.objects.get(id=product_id)# get the product
+    try:
+        cart = Cart.objects.get(cart_id=_cartId(request))# get the cart using the cart_id present in the session
+
+    #if the cart doesnt exixt than create a new cart with the designated id
+    except Cart.DoesNotExist:
+        cart = Cart.objects.create(
+            cart_id= _cartId(request)
+
+        )
+    cart.save()
+
+    #as the cart can have multiple products soo we combime the product and cart to get the cart item
+    try:
+        cart_item = CartItem.objects.get(product=product, cart=cart)
+        cart_item.quantity += 1 # quantity increace to 1 wen add to cart
+    
+    except CartItem.DoesNotExist:
+        cart_item = CartItem.objects.create(
+            product = product,
+            cart = cart,
+            quantity = 1,
+        )
+        cart_item.save()
+
+    return redirect('cart')
+
+#method to remove the cart item
+def removeCart(request, product_id):
+    cart = Cart.objects.get(cart_id=_cartId(request))# get the cart using the cart_id present in the session
+    product = get_object_or_404(Product, id=product_id)
+    cartItem = CartItem.objects.get(product=product, cart=cart)
+
+    if cartItem.quantity > 1:
+        cartItem.quantity -=1
+        cartItem.save()
+    else:
+        cartItem.delete()
+    return redirect('cart')
+
+
+#method to remove the cart item all at once
+def removeAll(request, product_id):
+    cart = Cart.objects.get(cart_id=_cartId(request))# get the cart using the cart_id present in the session
+    product = get_object_or_404(Product, id=product_id)
+    cartItem = CartItem.objects.get(product=product, cart=cart)
+    cartItem.delete()
+    return redirect('cart')
+
+#method to create the cart with the cart item added
+def cart(request, total=0, quantity=0, cart_item=None):
+    try:
+        cart = Cart.objects.get(cart_id=_cartId(request)) #get the cart base on the cart_id
+        cart_item = CartItem.objects.filter(cart=cart, is_active=True)# get the cart item 
+        
+        for item in cart_item:
+            total += (item.product.price * item.quantity)#get the total
+            quantity += item.quantity #get the quantity
+        
+        tax = (2 * total)/100
+        grand_total = total + tax
+
+    except ObjectDoesNotExist:
+        pass
+
+    context = {
+        'total': total,
+        'quantity': quantity,
+        'cartItem': cart_item,
+        'tax': tax,
+        'grandTotal': grand_total
+    }
+
+    return render(request, 'store/cart.html', context)
