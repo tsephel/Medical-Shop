@@ -27,7 +27,7 @@
             <var class="price h4">{{detail.price}}</var> 
         </div> 
 
-        <p>{{detail.dexcription}}</p>
+        <p>{{detail.description}}</p>
 
 
         <hr>
@@ -71,10 +71,16 @@
             </div> <!-- row.// -->
             <hr>
             {% if detail.stock <= 0 %}
-
                 <h5 class='text-danger'> Out of stock </h5>
             {% else %}
-                <a href=" {% url 'cartAdd' detail.id %} " class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+                {% if in_cart %}
+                    <a href="#" class="btn  btn-success"> <span class="text">Added to cart</span> <i class="fas fa-check"></i>  </a>
+                    <a href="{% url 'cart' %} " class="btn  btn-outline-primary"> <span class="text">View Cart</span> <i class="fas fa-eye"></i>  </a>
+                {% else %}
+                    <a href=" {% url 'cartAdd' detail.id %} " class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+                
+                {% endif %}
+
             {% endif %}
 
         </article> <!-- product-info-aside .// -->

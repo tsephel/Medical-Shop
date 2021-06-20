@@ -68,6 +68,8 @@ def removeAll(request, product_id):
 #method to create the cart with the cart item added
 def cart(request, total=0, quantity=0, cart_item=None):
     try:
+        tax = 0
+        grand_total = 0
         cart = Cart.objects.get(cart_id=_cartId(request)) #get the cart base on the cart_id
         cart_item = CartItem.objects.filter(cart=cart, is_active=True)# get the cart item 
         
