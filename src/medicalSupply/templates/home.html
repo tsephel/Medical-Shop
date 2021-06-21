@@ -4,55 +4,212 @@
 	{% block content %}
 
 
+	<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- shop -->
+					<div class="col-md-4 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="./img/shop01.png" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>Laptop<br>Collection</h3>
+								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
 
+					<!-- shop -->
+					<div class="col-md-4 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="./img/shop03.png" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>Accessories<br>Collection</h3>
+								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
 
-
-
-<!-- ========================= SECTION MAIN ========================= -->
-<section class="section-intro padding-y-sm">
-<div class="container">
-
-<div class="intro-banner-wrap">
-	<img src="images/banners/1.jpg" class="img-fluid rounded">
-</div>
-
-</div> <!-- container //  -->
-</section>
-<!-- ========================= SECTION MAIN END// ========================= -->
-
-<!-- ========================= SECTION  ========================= -->
-<section class="section-name padding-y-sm">
-<div class="container">
-
-<header class="section-heading">
-	<a href="{% url 'store' %}" class="btn btn-outline-primary float-right">See all</a>
-	<h3 class="section-title">Popular products</h3>
-</header><!-- sect-heading -->
-
-	
-<div class="row">
-
-	{% for product in products %}
-
-	<div class="col-md-3">
-		<div class="card card-product-grid">
-			<a href="{{product.get_url}}" class="img-wrap"> <img src="{{product.product_img.url}}"> </a>
-			<figcaption class="info-wrap">
-				<a href="{{product.get_url}}" class="title">{{product.product_name}} </a>
-				<div class="price mt-1">{{product.price}}</div> <!-- price-wrap.// -->
-			</figcaption>
+					<!-- shop -->
+					<div class="col-md-4 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="./img/shop02.png" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>Cameras<br>Collection</h3>
+								<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
 		</div>
-	</div> <!-- col.// -->
+		<!-- /SECTION -->
 
-	{% endfor %}
-	
-</div> <!-- row.// -->
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
 
-</div><!-- container // -->
-</section>
-<!-- ========================= SECTION  END// ========================= -->
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							 <div class="title-box">
+						    	<h2>New Arrivals</h2>
+						    </div>
+							<div class="section-nav">
+								<ul class="section-tab-nav tab-nav">
+									<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>	
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /section title -->
 
+					<!-- Products tab & slick -->
+					<div class="col-md-12">
+						<div class="row">
+							{% for product in products %}
+								<div class="col-md-3">
 
+								<div class="product-top">
+									<a href="{{product.get_url }}"><img src="{{product.product_img.url}}"></a> 
+								</div>
+								
+								<div class="product-bottom text-center">
+								<i class="fa fa-star"></i>  
+								<i class="fa fa-star"></i>  
+								<i class="fa fa-star"></i>  
+								<i class="fa fa-star-half-o"></i>  
+								<i class="fa fa-star-o"></i>  
+									<h3>{{product.product_name}}</h3>
+									<h5>${{product.price}}</h5>
+								</div>
+								</div>
 
+						{% endfor %}
+						</div>
+					</div>
+					<!-- Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- HOT DEAL SECTION -->
+		<div id="hot-deal" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="hot-deal">
+							<ul class="hot-deal-countdown">
+								<li>
+									<div>
+										<h3>02</h3>
+										<span>Days</span>
+									</div>
+								</li>
+								<li>
+									<div>
+										<h3>10</h3>
+										<span>Hours</span>
+									</div>
+								</li>
+								<li>
+									<div>
+										<h3>34</h3>
+										<span>Mins</span>
+									</div>
+								</li>
+								<li>
+									<div>
+										<h3>60</h3>
+										<span>Secs</span>
+									</div>
+								</li>
+							</ul>
+							<h2 class="text-uppercase">hot deal this week</h2>
+							<p>New Collection Up to 50% OFF</p>
+							<a class="primary-btn cta-btn" href="#">Shop now</a>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /HOT DEAL SECTION -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							 <div class="title-box">
+						    	<h2>New Arrivals</h2>
+						    </div>
+							<div class="section-nav">
+								<ul class="section-tab-nav tab-nav">
+									<li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /section title -->
+
+					<!-- Products tab & slick -->
+					<div class="col-md-12">
+						<div class="row">
+							{% for product in products %}
+								<div class="col-md-3">
+
+								<div class="product-top">
+									<a href="{{product.get_url }}"><img src="{{product.product_img.url}}"></a> 
+								</div>
+								
+								<div class="product-bottom text-center">
+								<i class="fa fa-star"></i>  
+								<i class="fa fa-star"></i>  
+								<i class="fa fa-star"></i>  
+								<i class="fa fa-star-half-o"></i>  
+								<i class="fa fa-star-o"></i>  
+									<h3>{{product.product_name}}</h3>
+									<h5>${{product.price}}</h5>
+								</div>
+								</div>
+
+						{% endfor %}
+						</div>
+					</div>
+					<!-- /Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
 
 	{% endblock %}

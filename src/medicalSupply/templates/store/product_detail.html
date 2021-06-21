@@ -3,128 +3,120 @@
 
 
 {% block content %}
+<!-- BREADCRUMB -->
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="breadcrumb-tree">
+							<li><a href="{% url 'home' %}">Home</a></li>
+							<li><a href="{% url 'store' %}">Store</a></li>
+							<li class="active">{{detail.product_name}}</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /BREADCRUMB -->
+      <!----------------Product Detail------------>  
 
-        <section class="section-content padding-y bg">
-        <div class="container">
-
-        <!-- ============================ COMPONENT 1 ================================= -->
-        <div class="card">
-            <div class="row no-gutters">
-                <aside class="col-md-6">
-        <article class="gallery-wrap"> 
-            <div class="img-big-wrap">
-            <a href="#"><img src="{{detail.product_img.url}}"></a>
-            </div> <!-- img-big-wrap.// -->
+            <section class="single-product">
+            <div class="container">
+            <div class="row">
+            <div class="col-md-5">
+                <div id="product-slider" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <img src="{{detail.product_img.url}}" class="d-block">
+                </div>
+            </div>
             
-        </article> <!-- gallery-wrap .end// -->
-                </aside>
-                <main class="col-md-6 border-left">
-        <article class="content-body">
-
-        <h2 class="title">{{detail.product_name}}</h2>
-
-        <div class="mb-3"> 
-            <var class="price h4">{{detail.price}}</var> 
-        </div> 
-
-        <p>{{detail.description}}</p>
-
-
-        <hr>
-            <div class="row">
-                <div class="item-option-select">
-                    <h6>Choose Color</h6>
-                    <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-light">
-                        <input type="radio" name="radio_color"> Silver
-                    </label>
-                    <label class="btn btn-light">
-                        <input type="radio" name="radio_color" > Gray
-                    </label>
-                    <label class="btn btn-light active">
-                        <input type="radio" name="radio_color checked"> Gold
-                    </label>
-                    <label class="btn btn-light">
-                        <input type="radio" name="radio_color"> Black
-                    </label>
-                    </div> 
-                </div>
-            </div> <!-- row.// -->
-            <div class="row">
-                <div class="item-option-select">
-                    <h6>Select Size</h6>
-                    <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-light">
-                        <input type="radio" name="radio_color"> S
-                    </label>
-                    <label class="btn btn-light active">
-                        <input type="radio" name="radio_color" checked> M
-                    </label>
-                    <label class="btn btn-light">
-                        <input type="radio" name="radio_color"> L
-                    </label>
-                    <label class="btn btn-light">
-                        <input type="radio" name="radio_color"> XL
-                    </label>
-                    </div> 
-                </div>
-            </div> <!-- row.// -->
-            <hr>
-            {% if detail.stock <= 0 %}
-                <h5 class='text-danger'> Out of stock </h5>
-            {% else %}
-                {% if in_cart %}
-                    <a href="#" class="btn  btn-success"> <span class="text">Added to cart</span> <i class="fas fa-check"></i>  </a>
-                    <a href="{% url 'cart' %} " class="btn  btn-outline-primary"> <span class="text">View Cart</span> <i class="fas fa-eye"></i>  </a>
+            </div>
+            </div>   
+                
+            <div class="col-md-7">
+                <p class="new-arrival text-center">NEW</p>
+                <h2>{{detail.product_name}}</h2>
+                <p>Product Code: IRSC2019</p>
+                
+                <i class="fa fa-star"></i>  
+                <i class="fa fa-star"></i>  
+                <i class="fa fa-star"></i>  
+                <i class="fa fa-star"></i>  
+                <i class="fa fa-star-half-o"></i>
+                    
+                <p class="price">USD ${{detail.price}}</p>
+                <p><b>Availability:</b>
+                {% if detail.stock <= 0 %}
+                    Out of stock 
                 {% else %}
-                    <a href=" {% url 'cartAdd' detail.id %} " class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
-                
+                    In stock
                 {% endif %}
+                </p>
+                <p><b>Brand:</b> XYZ Company</p>
 
-            {% endif %}
+                {% if detail.stock <= 0 %}
+                <h5 class='text-danger'> Out of stock </h5>
+                {% else %}
+                    {% if in_cart %}
+                        <a href="#" class="btn  btn-success"> <span class="text">Added to cart</span> <i class="fas fa-check"></i>  </a>
+                        <a href="{% url 'cart' %} " class="btn  btn-outline-primary"> <span class="text">View Cart</span> <i class="fas fa-eye"></i>  </a>
+                    {% else %}
+                        <a href=" {% url 'cartAdd' detail.id %} " class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+                    
+                    {% endif %}
 
-        </article> <!-- product-info-aside .// -->
-                </main> <!-- col.// -->
-            </div> <!-- row.// -->
-        </div> <!-- card.// -->
-        <!-- ============================ COMPONENT 1 END .// ================================= -->
-
-        <br>
-
-        <div class="row">
-                    <div class="col-md-9">
-
-            <header class="section-heading">
-                <h3>Customer Reviews </h3>  
+                {% endif %}
+            </div>    
+            </div>    
+            </div>    
+            </section>
                 
-            </header>
-
-            <article class="box mb-3">
-                <div class="icontext w-100">
-                    <img src="./images/avatars/avatar1.jpg" class="img-xs icon rounded-circle">
-                    <div class="text">
-                        <span class="date text-muted float-md-right">24.04.2020 </span>  
-                        <h6 class="mb-1">Mike John </h6>
-                        
-                    </div>
-                </div> <!-- icontext.// -->
-                <div class="mt-3">
-                    <p>
-                        Dummy comment Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    </p>	
+           <!----- Product description -->
+                
+            <section class="product-description">
+            <div class="container">
+            <h6>Product Description</h6>
+            <p>{{detail.description}}</p>
+                
+            <hr>    
+            </div> 
+                
+            <div class="container">
+                <div class="title-box">
+                <h2>Similar</h2>
                 </div>
-            </article>
-
+                <div class="row">
             
+                  {% for product in products %}
+								<div class="col-md-3">
 
-            </div> <!-- col.// -->
-        </div> <!-- row.// -->
+								<div class="product-top">
+									<a href="{{product.get_url }}"><img src="{{product.product_img.url}}"></a> 
+								</div>
+								
+								<div class="product-bottom text-center">
+								<i class="fa fa-star"></i>  
+								<i class="fa fa-star"></i>  
+								<i class="fa fa-star"></i>  
+								<i class="fa fa-star-half-o"></i>  
+								<i class="fa fa-star-o"></i>  
+									<h3>{{product.product_name}}</h3>
+									<h5>${{product.price}}</h5>
+								</div>
+								</div>
 
-
-        </div> <!-- container .//  -->
-        </section>
-        <!-- ========================= SECTION CONTENT END// ========================= -->
+						{% endfor %}
+                
+                </div>
+            </div>
+                
+            </section>
+                
+ 
 
 {% endblock %}

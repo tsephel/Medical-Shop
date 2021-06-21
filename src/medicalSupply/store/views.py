@@ -44,6 +44,8 @@ def store(request, category_slug=None):
 
 #method to display the single product with category and product slug
 def prodcut_detail(request, category_slug, product_slug):
+    products = Product.objects.all().order_by('-created')
+    
     try:
         detail = Product.objects.get(category__slug=category_slug, slug=product_slug)
         # to check weather the item exists in cart. if true than it doesnt show add button 
@@ -56,6 +58,7 @@ def prodcut_detail(request, category_slug, product_slug):
     context = {
         'detail': detail,
         'in_cart': in_cart,
+        'products': products,
     }
 
     return render(request, 'store/product_detail.html', context)

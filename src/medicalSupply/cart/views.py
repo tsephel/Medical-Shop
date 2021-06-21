@@ -67,6 +67,7 @@ def removeAll(request, product_id):
 
 #method to create the cart with the cart item added
 def cart(request, total=0, quantity=0, cart_item=None):
+    user = request.user.username
     try:
         tax = 0
         grand_total = 0
@@ -80,6 +81,7 @@ def cart(request, total=0, quantity=0, cart_item=None):
         tax = (2 * total)/100
         grand_total = total + tax
 
+        count = cart_item.count
     except ObjectDoesNotExist:
         pass
 
@@ -88,7 +90,9 @@ def cart(request, total=0, quantity=0, cart_item=None):
         'quantity': quantity,
         'cartItem': cart_item,
         'tax': tax,
-        'grandTotal': grand_total
+        'grandTotal': grand_total,
+        'user': user,
+        'count':count,
     }
 
     return render(request, 'store/cart.html', context)
