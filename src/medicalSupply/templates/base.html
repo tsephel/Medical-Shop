@@ -52,8 +52,21 @@
 						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 					</ul>
 					<ul class="header-links pull-right">
+
+					{% if user.is_authenticated %}
+						<li><a href="#"><i class="fa fa-sign-in"></i> Your Profile</a></li>
+						<li><a href="{% url 'logout' %}"><i class="fa fa-sign-up"></i> Logout </a></li>
+
+					
+					
+					{% else %}
 						<li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Sign In</a></li>
 						<li><a href="{% url 'register' %}"><i class="fa fa-sign-up"></i> Sign Up</a></li>
+
+						
+					{% endif %}
+
+						
 					</ul>
 				</div>
 			</div>
