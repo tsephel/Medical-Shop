@@ -1,51 +1,4 @@
-/*
-Template Name: Electro - HTML Ecommerce Template
-Author: yaminncco
 
-Colors:
-	Body 		: #333
-	Headers 	: #2B2D42
-	Primary 	: #D10024
-	Dark 		: #15161D ##1E1F29
-	Grey 		: #E4E7ED #FBFBFC #8D99AE #B9BABC
-
-Fonts: Montserrat
-
-Table OF Contents
-------------------------------------
-1 > GENERAL
------- Typography
------- Buttons
------- Inputs
------- Sections
------- Breadcrumb
-2 > HEADER
------- Top header
------- Logo
------- Search
------- Cart
-3 > NAVIGATION
------- Main nav
------- Responsive Nav
-4 > CATEGORY SHOP
-5 > HOT DEAL
-6 > PRODUCT
------- Product
------- Widget product
------- Product slick
-7 > STORE PAGE
------- Aside
------- Store
-8 > PRODUCT DETAILS PAGE
------- Product view
------- Product details
------- Product tab
-9 > CHECKOUT PAGE
-10 > NEWSLETTER
-11 > FOOTER
-11 > SLICK STYLE
-12 > RESPONSIVE
-------------------------------------*/
 
 /*=========================================================
 	01 -> GENERAL
@@ -445,7 +398,9 @@ textarea.input {
 #top-header {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #5ca0f2;
+  /* background-color: #5ca0f2; */
+  background-image: linear-gradient(to bottom right, #83eaf1, #63a4ff
+  );
 
 }
 
@@ -745,7 +700,7 @@ textarea.input {
 	04 -> CATEGORY SHOP
 ===========================================================*/
 
-.shop {
+ .shop {
   position: relative;
   overflow: hidden;
   margin: 15px 0px;
@@ -812,7 +767,8 @@ textarea.input {
 .shop .shop-body .cta-btn {
   color: #FFF;
   text-transform: uppercase;
-}
+} 
+
 
 /*=========================================================
 	05 -> HOT DEAL
@@ -822,7 +778,7 @@ textarea.input {
   padding: 60px 0px;
   margin: 30px 0px;
   background-color: #E4E7ED;
-  background-image: url('../img/hotdeal.png');
+  background-image: url('static/images/banner.png');
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -831,42 +787,6 @@ textarea.input {
   text-align: center;
 }
 
-.hot-deal .hot-deal-countdown {
-  margin-bottom: 30px;
-}
-
-.hot-deal .hot-deal-countdown>li {
-  position: relative;
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  background: var(--blue)e6;
-  text-align: center;
-  border-radius: 50%;
-  margin: 0px 5px;
-}
-
-.hot-deal .hot-deal-countdown>li>div {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.hot-deal .hot-deal-countdown>li>div h3 {
-  color: #FFF;
-  margin-bottom: 0px;
-}
-
-.hot-deal .hot-deal-countdown>li>div span {
-  display: block;
-  font-size: 10px;
-  text-transform: uppercase;
-  color: #FFF;
-}
 
 .hot-deal p {
   text-transform: uppercase;
@@ -877,139 +797,16 @@ textarea.input {
   margin-top: 15px;
 }
 
+
 /*=========================================================
 	06 -> PRODUCT
 ===========================================================*/
-
-/*----------------------------*\
-	product
-\*----------------------------*/
-
-/* .product {
-  position: relative;
-  margin: 15px 0px;
-  -webkit-box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
-  box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
-
-
-.product .product-img {
-  position: relative;
-}
-
-
-.product .product-img>img {
-  width: 100%;
-  transition: 1s;
-  cursor: pointer;
-}
-
-.product .product-img>img:hover
-{
-    transform: scale(1.1);
-}
-
-.product .product-img .product-label {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
-.product .product-img .product-label>span {
-  border: 2px solid;
-  padding: 2px 10px;
-  font-size: 12px;
-}
-
-.product .product-img .product-label>span.sale {
-  background-color: #FFF;
-  border-color: var(--blue);
-  color: var(--blue);
-}
-
-.product .product-img .product-label>span.new {
-  background-color: var(--blue);
-  border-color: var(--blue);
-  color: #FFF;
-}
-
-.product .product-body {
-  position: relative;
-  padding: 15px;
-  background-color: #FFF;
-  text-align: center;
-  z-index: 20;
-}
-
-.product .product-body .product-category {
-  text-transform: uppercase;
-  font-size: 12px;
-  color: #8D99AE;
-}
-
-.product .product-body .product-name {
-  text-transform: uppercase;
-  font-size: 14px;
-}
-
-.product .product-body .product-name>a {
-  font-weight: 700;
-}
-
-.product .product-body .product-name>a:hover, .product .product-body .product-name>a:focus {
-  color: var(--blue);
-}
-
-.product .product-body .product-price {
-  color: var(--blue);
-  font-size: 18px;
-}
-
-.product .product-body .product-price .product-old-price {
-  font-size: 70%;
-  font-weight: 400;
-  color: #8D99AE;
-}
-
-.product .product-body .product-rating {
-  position: relative;
-  margin: 15px 0px 10px;
-  height: 20px;
-}
-
-.product .product-body .product-rating>i {
-  position: relative;
-  width: 14px;
-  margin-right: -4px;
-  background: #FFF;
-  color: #E4E7ED;
-  z-index: 10;
-}
-
-.product .product-body .product-rating>i.fa-star {
-  color: #ef233c;
-}
-
-.product .product-body .product-rating:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  height: 1px;
-  background-color: #E4E7ED;
-} */
-
 
 /*-------------product-top CSS----------------*/
 .product-top img
 {
     width: 100%;
+    height: 250px;
     transition: 1s;
     cursor: pointer;
 }
@@ -1043,268 +840,7 @@ textarea.input {
 
 
 
-/*----------------------------*\
-	Widget product
-\*----------------------------*/
 
-/*.product-widget {
-  position: relative;
-}
-
-.product-widget+.product-widget {
-  margin: 30px 0px;
-}
-
-.product-widget .product-img {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 60px;
-}
-
-.product-widget .product-img>img {
-  width: 100%;
-}
-
-.product-widget .product-body {
-  padding-left: 75px;
-  min-height: 60px;
-}
-
-.product-widget .product-body .product-category {
-  text-transform: uppercase;
-  font-size: 10px;
-  color: #8D99AE;
-}
-
-.product-widget .product-body .product-name {
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-.product-widget .product-body .product-name>a {
-  font-weight: 700;
-}
-
-.product-widget .product-body .product-name>a:hover, .product-widget .product-body .product-name>a:focus {
-  color: var(--blue);
-}
-
-.product-widget .product-body .product-price {
-  font-size: 14px;
-  color: var(--blue);
-}
-
-.product-widget .product-body .product-price .product-old-price {
-  font-size: 70%;
-  font-weight: 400;
-  color: #8D99AE;
-}
-
-.product-widget .product-body .product-price .qty {
-  font-weight: 400;
-  margin-right: 10px;
-}
-
-.product-widget .delete {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 14px;
-  width: 14px;
-  text-align: center;
-  font-size: 10px;
-  padding: 0;
-  background: #1e1f29;
-  border: none;
-  color: #FFF;
-}*/
-
-/*----------------------------*\
-	Products slick
-\*----------------------------*/
-
-/*.products-slick .slick-list {
-  padding-bottom: 60px;
-  margin-bottom: -60px;
-  z-index: 2;
-}
-
-.products-slick .product.slick-slide {
-  margin: 15px;
-}
-
-.products-tabs>.tab-pane {
-  display: block;
-  height: 0;
-  opacity: 0;
-  visibility: hidden;
-  overflow-y: hidden;
-  padding-bottom: 60px;
-  margin-bottom: -60px;
-}
-
-.products-tabs>.tab-pane.active {
-  opacity: 1;
-  visibility: visible;
-  height: auto;
-}
-
-.products-slick-nav {
-  position: absolute;
-  right: 15px;
-  z-index: 10;
-}
-
-.products-slick-nav .slick-prev, .products-slick-nav .slick-next {
-  position: static;
-  -webkit-transform: none;
-  -ms-transform: none;
-  transform: none;
-  width: 20px;
-  height: 20px;
-  display: inline-block !important;
-  margin: 0px 2px;
-}
-
-.products-slick-nav .slick-prev:before, .products-slick-nav .slick-next:before {
-  font-size: 14px;
-}*/
-
-/*=========================================================
-	07 -> PRODUCTS PAGE
-===========================================================*/
-
-/*----------------------------*\
-	Aside
-\*----------------------------*/
-
-/*.aside+.aside {
-  margin-top: 30px;
-}
-
-.aside>.aside-title {
-  text-transform: uppercase;
-  font-size: 18px;
-  margin: 15px 0px 30px;
-}*/
-
-/*-- checkbox Filter --*/
-
-/*.checkbox-filter>div+div {
-  margin-top: 10px;
-}
-
-.checkbox-filter .input-radio label, .checkbox-filter .input-checkbox label {
-  font-size: 12px;
-}
-
-.checkbox-filter .input-radio label small, .checkbox-filter .input-checkbox label small {
-  color: #8D99AE;
-}
-*/
-/*-- Price Filter --*/
-
-/*#price-slider {
-  margin-bottom: 15px;
-}
-
-.noUi-target {
-  background-color: #FFF;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border: 1px solid #E4E7ED;
-  border-radius: 0px;
-}
-
-.noUi-connect {
-  background-color: var(--blue);
-}
-
-.noUi-horizontal {
-  height: 6px;
-}
-
-.noUi-horizontal .noUi-handle {
-  width: 12px;
-  height: 12px;
-  left: -6px;
-  top: -4px;
-  border: none;
-  background: var(--blue);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border-radius: 50%;
-}
-
-.noUi-handle:before, .noUi-handle:after {
-  display: none;
-}
-
-.price-filter .input-number {
-  display: inline-block;
-  width: calc(50% - 7px);
-}*/
-
-/*----------------------------*\
-	Store
-\*----------------------------*/
-
-/*.store-filter {
-  margin-bottom: 15px;
-  margin-top: 15px;
-}*/
-
-/*-- Store Sort --*/
-
-/*.store-sort {
-  display: inline-block;
-}
-
-.store-sort label {
-  font-weight: 500;
-  font-size: 12px;
-  text-transform: uppercase;
-  margin-right: 15px;
-}*/
-
-/*-- Store Grid --*/
-
-/*.store-grid {
-  float: right;
-}
-
-.store-grid li {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  background-color: #FFF;
-  border: 1px solid #E4E7ED;
-  text-align: center;
-  -webkit-transition: 0.2s all;
-  transition: 0.2s all;
-}
-
-.store-grid li+li {
-  margin-left: 5px;
-}
-
-.store-grid li:hover {
-  background-color: #E4E7ED;
-  color: var(--blue);
-}
-
-.store-grid li.active {
-  background-color: var(--blue);
-  border-color: var(--blue);
-  color: #FFF;
-  cursor: default;
-}
-
-.store-grid li a {
-  display: block;
-}*/
 
 /*-- Store Pagination --*/
 
@@ -1378,6 +914,13 @@ textarea.input {
 {
     color: #555;
 }
+
+.detail-img img{
+  width: 600px;
+  height: 600px;
+}
+
+
 .single-product .fa
 {
     color: orange;
