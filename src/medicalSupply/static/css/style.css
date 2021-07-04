@@ -1213,145 +1213,87 @@ ul, ol {
 	09 -> CART PAGE
 ===========================================================*/
 
-.title {
-  margin-bottom: 5vh
+.cart-page{
+  margin: 80px auto;
+
 }
 
-.card {
-  padding-top: 30px;
-  margin: auto;
-  max-width: 1200px;
-  width: 90%;
-  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 1rem;
-  border: transparent
+table{
+  width: 100%;
+
 }
 
-@media(max-width:767px) {
-  .card {
-      margin: 3vh auto
-  }
+.cart-info{
+  display: flex;
+  flex-wrap: wrap;
+  
 }
 
-.cart {
-  background-color: #fff;
-  padding: 4vh 5vh;
-  border-bottom-left-radius: 1rem;
-  border-top-left-radius: 1rem
+.cart-info img{
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+
 }
 
-@media(max-width:767px) {
-  .cart {
-      padding: 4vh;
-      border-bottom-left-radius: unset;
-      border-top-right-radius: 1rem
-  }
+th{
+  text-align: left;
+  padding: 5px;
+  color: #fff;
+  background:var(--blue);
+  font-weight: normal;
 }
 
+td{
+  padding: 10px 5px;
 
-.cart .row {
-  margin: 0
 }
 
-.cart .title b {
-  font-size: 1.5rem
+td input{
+  width: 40px;
+  height: 30px;
+  padding: 5px;
 }
 
-.main {
-  margin: 0;
-  padding: 2vh 0;
-  width: 100%
+.total-price{
+  display: flex;
+  justify-content: flex-end;
 }
 
-.cart .col-2,
-.cart .col {
-  padding: 0 1vh
+.total-price table{
+  border-top: 3px solid var(--blue);
+  width: 100%;
+  max-width: 350px;
 }
 
-.cart a {
-  padding: 0 1vh
+td:last-child{
+  text-align:right;
 }
 
-.cart .close {
-  margin-left: auto;
-  font-size: 0.7rem
+th:last-child{
+  text-align:right;
 }
 
-.cart img {
-  width: 3.5rem
+.order-submit{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.order-submit a{
+  padding: 10px 120px;
+  margin-top: 10px;
 }
 
 .back-to-shop {
-  margin-top: 4.5rem
-}
-
-.cart h5 {
-  margin-top: 4vh
-}
-
-hr {
-  margin-top: 1.25rem
-}
-
-
-.qty .count {
-  display: inline-block;
-  vertical-align: top;
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 10px;
-  font-size: 15px;
-  padding: 0 2px;
-  min-width: 15px;
-  text-align: center;
-}
-.qty .plus {
+  margin-bottom: 2rem;
+  font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
-  display: inline-block;
-  vertical-align: top;
-  color: black;
-  width: 20px;
-  height:20px;
-  font-size: 15px;
-  text-align: center;
-  border-radius: 50%;
-  }
-.qty .minus {
-  cursor: pointer;
-  display: inline-block;
-  vertical-align: top;
-  color: black;
-  width: 20px;
-  height: 20px;
-  font-size: 15px;
-  text-align: center;
-  border-radius: 50%;
-  background-clip: padding-box;
 }
 
-/* .minus:hover{
-  background-color: #717fe0 !important;
-}
-.plus:hover{
-  background-color: #717fe0 !important;
-} */
-/*Prevent text selection*/
-.qty a{
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-.qty input{  
-  border: 0;
-  width: 1%;
-}
-nput::-webkit-outer-spin-button,
-.qty input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.qty input:disabled{
-  background-color:white;
+.back-to-shop:hover,
+.back-to-shop span:hover{
+  color: var(--blue);
 }
 
 
@@ -1359,76 +1301,119 @@ nput::-webkit-outer-spin-button,
 	09 -> CHECKOUT PAGE
 ===========================================================*/
 
-.billing-details {
-  margin-bottom: 30px;
+.card0 {
+  margin: 40px 12px 15px 12px;
+  border: 0
 }
 
-.shiping-details {
-  margin-bottom: 30px;
+.card1 {
+  margin: 0;
+  padding: 15px;
+  padding-top: 25px;
+  padding-bottom: 0px;
+  background: #263238;
+  height: 100%
 }
 
-.order-details {
-  position: relative;
-  padding: 0px 30px 30px;
-  border-right: 1px solid #E4E7ED;
-  border-left: 1px solid #E4E7ED;
-  border-bottom: 1px solid #E4E7ED;
+.bill-head {
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 30px
 }
 
-.order-details:before {
-  content: "";
-  position: absolute;
-  left: -1px;
-  right: -1px;
-  top: -15px;
-  height: 30px;
-  border-top: 1px solid #E4E7ED;
-  border-left: 1px solid #E4E7ED;
-  border-right: 1px solid #E4E7ED;
+.line {
+  border-right: 1px grey solid
 }
 
-.order-summary {
-  margin: 15px 0px;
+.bill-date {
+  color: #BDBDBD
 }
 
-.order-summary .order-col {
-  display: table;
+.red-bg {
+  margin-top: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: #F44336;
+  padding-left: 20px !important;
+  padding: 25px 10px 25px 15px
+}
+
+#total {
+  margin-top: 0px;
+  padding-left: 7px
+}
+
+#total-label {
+  margin-bottom: 0px;
+  color: #ffffff;
+  padding-left: 7px
+}
+
+#heading1 {
+  color: #ffffff;
+  font-size: 20px;
+  padding-left: 10px
+}
+
+#heading2 {
+  font-size: 27px;
+  color: #D50000
+}
+
+.placeicon {
+  font-family: fontawesome !important
+}
+
+.card2 {
+  padding: 25px;
+  margin: 0;
+  height: 100%
+}
+
+.form-card .pay {
+  font-weight: bold
+}
+
+.form-card input,
+.form-card textarea {
+  padding: 10px 8px 10px 8px;
+  border: none;
+  border: 1px solid lightgrey;
+  border-radius: 0px;
+  margin-bottom: 25px;
+  margin-top: 2px;
   width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2C3E50;
+  font-size: 14px;
+  letter-spacing: 1px
 }
 
-.order-summary .order-col:after {
-  content: "";
-  display: block;
-  clear: both;
+.form-card input:focus,
+.form-card textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: none;
+  font-weight: bold;
+  border: 1px solid gray;
+  outline-width: 0
 }
 
-.order-summary .order-col>div {
-  display: table-cell;
-  padding: 10px 0px;
+.btn-info {
+  color: #ffffff !important
 }
 
-.order-summary .order-col>div:first-child {
-  width: calc(100% - 150px);
+
+.fit-image {
+  width: 100%;
+  object-fit: cover
 }
 
-.order-summary .order-col>div:last-child {
-  width: 150px;
-  text-align: right;
-}
 
-.order-summary .order-col .order-total {
-  font-size: 24px;
-  color: var(--blue);
-}
-
-.order-details .payment-method {
-  margin: 30px 0px;
-}
-
-.order-details .order-submit {
-  display: block;
-  margin-top: 30px;
-}
 
 /*=========================================================
 	10 -> NEWSLETTER
@@ -1532,9 +1517,6 @@ nput::-webkit-outer-spin-button,
   color: #B9BABC;
 }
 
-#bottom-footer {
-  background: #1E1F29;
-}
 
 .footer {
   margin: 30px 0px;
@@ -1572,16 +1554,7 @@ nput::-webkit-outer-spin-button,
   font-size: 12px;
 }
 
-.footer-payments li {
-  display: inline-block;
-  margin-right: 5px;
-}
 
-.footer-payments li a {
-  color: #15161D;
-  font-size: 36px;
-  display: block;
-}
 
 /*=========================================================
 	12 -> SLICK STYLE
@@ -1719,3 +1692,53 @@ nput::-webkit-outer-spin-button,
 i{
   color: black !important;
 }
+
+
+
+
+
+
+
+.mt-100 {
+  margin-top: 100px
+}
+
+.empty {
+  margin-bottom: 30px;
+  border: 0;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  letter-spacing: .5px;
+  border-radius: 8px;
+  -webkit-box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, .05);
+  box-shadow: 1px 5px 24px 0 rgba(68, 102, 242, .05)
+}
+
+.empty .card-header {
+  background-color: #fff;
+  border-bottom: none;
+  padding: 24px;
+  border-bottom: 1px solid #f6f7fb;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px
+}
+
+.empty .card-header:first-child {
+  border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0
+}
+
+.empty .card-body {
+  padding: 30px;
+  background-color: transparent
+}
+
+.empty .btn-primary,
+.empty .btn-primary.disabled,
+.empty .btn-primary:disabled {
+  background-color: #4466f2 !important;
+  border-color: #4466f2 !important
+}
+
+
+
+
