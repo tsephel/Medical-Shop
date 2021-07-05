@@ -1,6 +1,6 @@
 from django.contrib.messages.api import error
 from django.http.response import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .form import RegistrationForm
 from .models import Account
 from django.contrib import messages, auth
@@ -15,6 +15,7 @@ from django.core.mail import EmailMessage
 
 from cart.models import Cart, CartItem
 from cart.views import _cartId
+from orders.models import Order, OrderProduct
 
 import requests
 
@@ -139,8 +140,36 @@ def logout(request):
 # method to render dashboard page
 @login_required(login_url='login')
 def dashboard(request):
+    orders = Order.objects.filter(user=request.user, is_ordered=True).order_by('-created_at')
+    
+    context = {
+		'orders': orders,
+	}
 
-    return render(request, 'account/dashboard.html')
+    return render(request, 'account/dashboard.html', context)
+
+
+# method to render order detail page
+@login_required(login_url='login')
+def order_detail(request, order_id):
+    order_detail = OrderProduct.objects.filter(order__order_number=order_id)
+    order = Order.objects.get(order_number=order_id)
+
+    sub_total = 0
+
+    for i in order_detail:
+        sub_total += i.product_price * i.quantity
+
+    context ={
+        'order_detail': order_detail,
+        'order': order,
+        'sub_total': sub_total,
+    }
+
+    return render(request, 'account/order_detail.html', context)
+
+
+
 
 
 def forgotPassword(request):

@@ -3,7 +3,51 @@
 
 {% block content %}
 
-    
+    	<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="breadcrumb-tree">
+							<li><a href="#">{{ user.get_username }} Orders</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /BREADCRUMB -->
+
+        <table class='container order-list'>
+            <thead>
+                <tr>
+                    <th>Order No.</th>
+                    <th>Billing Name</th>
+                    <th>Order Total</th>
+                    <th>Order Status</th>
+                    <th>Date</th>
+
+                </tr>
+            </thead>
+        
+        {% for order in orders %}
+        <tr> 
+            <td><a href="{% url 'orderDetail' order.order_number %}">{{order.order_number}}</a></td>
+                <td>{{order.full_name}}</td>
+                <td>${{order.order_total}}</td>
+                <td>
+                <p class="status status-unpaid">{{order.status}}</p>
+                </td>
+                <td>{{order.created_at}}</td>
+
+            </tr>
+        </tr>
+
+        {% endfor %}
+
+</table>
 
     
 {% endblock %}

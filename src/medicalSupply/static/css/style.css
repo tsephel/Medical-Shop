@@ -782,7 +782,7 @@ ul, ol {
 
 
 /*=========================================================
-	05 -> HOT DEAL
+  HOT DEAL
 ===========================================================*/
 
 #hot-deal.section {
@@ -810,7 +810,7 @@ ul, ol {
 
 
 /*=========================================================
-	06 -> PRODUCT
+   PRODUCT
 ===========================================================*/
 
 /*-------------product-top CSS----------------*/
@@ -900,7 +900,7 @@ ul, ol {
 }
 
 /*=========================================================
-	08 -> PRODUCT DETAILS PAGE
+	 PRODUCT DETAILS PAGE
 ===========================================================*/
 
 /*----------------------------*\
@@ -1210,7 +1210,7 @@ ul, ol {
 
 
 /*=========================================================
-	09 -> CART PAGE
+ CART PAGE
 ===========================================================*/
 
 .cart-page{
@@ -1298,7 +1298,7 @@ th:last-child{
 
 
 /*=========================================================
-	09 -> CHECKOUT PAGE
+ CHECKOUT PAGE
 ===========================================================*/
 
 .card0 {
@@ -1413,10 +1413,35 @@ th:last-child{
   object-fit: cover
 }
 
+/*=========================================================
+	PAYMENT
+===========================================================*/
+
+.payment h5{
+  color: #fff;
+  padding: 5px;
+  background:var(--blue);
+}
+
+.payment h5,
+.payment p{
+  padding-left: 10px;
+}
+
+.payment .col-lg-7{
+  border: 2px solid var(--blue);
+  margin: 0 10px;
+  padding: 0;
+}
+
+.payment .col-lg-4{
+  border: 2px solid var(--blue);
+  padding: 20px;
+}
 
 
 /*=========================================================
-	10 -> NEWSLETTER
+	 NEWSLETTER
 ===========================================================*/
 
 #newsletter.section {
@@ -1697,6 +1722,9 @@ i{
 
 
 
+/*=========================================================
+	Empty shopping cart section
+===========================================================*/
 
 
 .mt-100 {
@@ -1742,3 +1770,99 @@ i{
 
 
 
+/*=========================================================
+	ORDER COMPLETE SECTION
+===========================================================*/
+.body-main {
+  background: #ffffff;
+  border-bottom: 15px solid var(--blue);
+  border-top: 15px solid var(--blue);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 70px 30px !important;
+  position: relative;
+  box-shadow: 0 1px 21px #808080;
+  font-size: 15px
+}
+
+.main thead {
+  background: #1E1F23;
+  color: #fff
+}
+
+.body-main .img {
+  height: 100px
+}
+
+.body-main h1 {
+  text-align: center
+}
+
+.body-main h4 {
+  color: var(--blue);
+}
+
+
+
+/*=========================================================
+	DASHBOARD SECTION
+===========================================================*/
+.order-list {
+  border-collapse: collapse;
+  box-shadow: 0 5px 10px #e1e5ee;
+  background-color: white;
+  text-align: left;
+  overflow: hidden;
+}
+.order-list thead {
+    box-shadow: 0 5px 10px #e1e5ee;
+  }
+
+  .order-list th {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.7rem;
+    font-weight: 900;
+  }
+
+  .order-list td {
+    padding: 1rem 2rem;
+  }
+
+  .order-list a {
+    text-decoration: none;
+    color:#2962ff;
+  }
+
+  .order-list .status {
+    border-radius:  0.2rem;
+    background-color: red;
+    padding: 0.2rem 1rem;
+    text-align: center;
+}
+.order-list .status-pending {
+      background-color: #fff0c2;
+      color: #a68b00;
+    }
+
+    .order-list .status-paid {
+      background-color: #c8e6c9;
+      color:  #388e3c;
+    }
+
+    .order-list .status-unpaid {
+      background-color: #ffcdd2;
+      color: #c62828;
+    }
+  
+
+    .order-list .amount {
+    text-align: right;
+  }
+
+ 
+  .order-list tr:nth-child(even) {
+    background-color: #f4f6fb;
+  }
+ 

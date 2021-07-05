@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+
+
+
+        <div class="container">
+    {% comment %} <div class="page-header">
+        <h1>Invoice</h1>
+    </div> {% endcomment %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 body-main">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4"> <img class="img" alt="Invoce Template" src="http://pngimg.com/uploads/shopping_cart/shopping_cart_PNG59.png" /> </div>
+                        <div class="col-md-8 text-right">
+                            <h4><strong>Invoice To</strong></h4>
+                            <p>{{order.full_name}}</p>
+                            <p>{{order.email}}</p>
+                            <p>{{order.address}}</p>
+                            <p>{{order.city}}, {{order.state}}</p>
+                        </div>
+                    </div> <br />
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2>INVOICE</h2>
+                            <h5># {{order.order_number}}</h5>
+                            <h5><b>Ordered Date: </b> {{order.created_at}}</h5>
+                        </div>
+                    </div> <br />
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <h5>Product</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Quantity</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Amount</h5>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in order_products%}
+                                    <tr>
+                                        <td class="col-md-9">{{item.product.product_name}}</td>
+                                        <td class="col-md-1">{{item.quantity}}</td>
+                                        <td class="col-md-2">$ {{item.product_price}} </td>
+                                    </tr>
+
+                               {% endfor %}
+                                
+                                <tr>
+                                    <td class="text-right">
+                                        <p> <strong>Total Amount: </strong> </p>
+                                        <p> <strong>Taxes:</strong> </p>
+                                        <p> <strong>Payable Amount: </strong> </p>
+                                    </td>
+                                    <td>
+                                        <p> <strong>${{sub_total}}</strong> </p>
+                                        <p> <strong> ${{order.tax}}</strong> </p>
+                                        <p> <strong> ${{order.order_total}}</strong> </p>
+                                    </td>
+                                </tr>
+                                <tr style="color: #F81D2D;">
+                                    <td class="text-right">
+                                        <h4><strong>Total:</strong></h4>
+                                    </td>
+                                    <td class="text-left">
+                                        <h4><strong><i class="fas fa-rupee-sign" area-hidden="true"></i> ${{order.order_total}} </strong></h4>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <div class="col-md-12">
+                            <p><b>Date :</b> {% now "SHORT_DATE_FORMAT" %}</p> <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    {% endblock %}
