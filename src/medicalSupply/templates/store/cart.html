@@ -71,9 +71,9 @@
                                 </div>
                             </td>
                             <td>
-                                <a href="{% url 'cartRemove' item.product.id %}" class="minus">-</a>
-                                <input type="number" class="count" name="qty" value="{{item.quantity}}">
-                                <a href="{% url 'cartAdd' item.product.id %}" class="plus">+</a>
+                                <a href="{% url 'cartRemove' item.product.id %}" class="input-number-decrement">-</a>
+                                <input type="number" class="input-number" id="number" name="qty" value="{{item.quantity}}" disabled>
+                                <a href="{% url 'cartAdd' item.product.id %}" class="input-number-increment">+</a>
                             </td>
                             <td>$ {{item.sub_total}} </td>
                             <td><a href="{% url 'cartRemoveAll' item.product.id %}"> <i class='fa fa-close'></i></a></td>

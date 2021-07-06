@@ -153,6 +153,7 @@ def checkout(request, total=0, quantity=0, cart_item=None):
         tax = 0
         grand_total = 0
         count = 0
+        
         if request.user.is_authenticated:
              cart_item = CartItem.objects.filter(user=request.user, is_active=True)# get the cart item of the user
         

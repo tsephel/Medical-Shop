@@ -67,8 +67,9 @@
          
                     </tr>
 
+                    {% for item in cartItem %}
                     <tr>
-                        {% for item in cartItem %}
+                     
                             <td>
                                 <div class='cart-info'>
                                     <img src="{{item.product.product_img.url}}">
@@ -78,15 +79,12 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                               
-                                <input type="number" class="count" name="qty" value="{{item.quantity}}">
-                              
-                            </td>
+                            <td>{{item.quantity}}</td>
                             <td>$ {{item.sub_total}} </td>
                            
-                        {% endfor %}
+                        
                     </tr>
+                    {% endfor %}
 
                 </div>
 

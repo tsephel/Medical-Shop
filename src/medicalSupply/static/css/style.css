@@ -614,7 +614,71 @@ ul, ol {
 }
 
 /*=========================================================
-	03 -> Navigation
+	CART QUANTITY SECTION
+===========================================================*/
+.input-number{
+  width: 50px;
+  padding: 0 12px;
+  vertical-align: top;
+  text-align: center;
+  outline: none;
+}
+
+
+.input-number,
+.input-number-decrement,
+.input-number-increment{
+
+  border: 1px solid #ccc;
+  height: 30px;
+  user-select: none;
+  
+}
+
+
+.input-number-decrement,
+.input-number-increment{
+
+  display: inline-block;
+  width: 30px;
+  line-height: 38px;
+  background: #f1f1f1;
+  color: #444;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+  
+.input-number-decrement:active,
+.input-number-increment:active{
+  background: #ddd;
+}
+   
+
+.input-number-decrement{
+
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+}
+  
+
+.input-number-increment{
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+
+/*=========================================================
+ Navigation
 ===========================================================*/
 
 #navigation {
@@ -665,6 +729,7 @@ ul, ol {
 @media only screen and (max-width: 991px) {
   .header-ctn .menu-toggle {
     display: inline-block;
+    margin: 10px 20px 5px 20px;
   }
   #responsive-nav {
     position: fixed;
@@ -1306,6 +1371,23 @@ th:last-child{
   border: 0
 }
 
+.card0 h2{
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+.card0 b{
+  font-size: 14px;
+  font-weight: bold;
+  color: #BDBDBD;
+
+}
+
+.card0 .item{
+  margin-bottom: 10px;
+}
+
 .card1 {
   margin: 0;
   padding: 15px;
@@ -1328,7 +1410,9 @@ th:last-child{
 }
 
 .bill-date {
-  color: #BDBDBD
+  color: #BDBDBD;
+  font-weight: bold;
+  
 }
 
 .red-bg {
@@ -1354,7 +1438,8 @@ th:last-child{
 #heading1 {
   color: #ffffff;
   font-size: 20px;
-  padding-left: 10px
+  padding-bottom: 10px;
+
 }
 
 #heading2 {
@@ -1369,11 +1454,12 @@ th:last-child{
 .card2 {
   padding: 25px;
   margin: 0;
-  height: 100%
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .form-card .pay {
-  font-weight: bold
+  font-weight: bold;
 }
 
 .form-card input,
@@ -1389,7 +1475,7 @@ th:last-child{
   font-family: montserrat;
   color: #2C3E50;
   font-size: 14px;
-  letter-spacing: 1px
+  letter-spacing: 1px;
 }
 
 .form-card input:focus,
@@ -1400,7 +1486,7 @@ th:last-child{
   border: none;
   font-weight: bold;
   border: 1px solid gray;
-  outline-width: 0
+  outline-width: 0;
 }
 
 .btn-info {
@@ -1662,13 +1748,7 @@ th:last-child{
 @media only screen and (max-width: 1201px) {}
 
 @media only screen and (max-width: 991px) {
-  #top-header .header-links.pull-left {
-    float: none !important;
-  }
-  #top-header .header-links.pull-right {
-    float: none !important;
-    margin-top: 5px;
-  }
+
   .header-logo {
     float: none;
     text-align: center;
@@ -1694,6 +1774,14 @@ th:last-child{
     float: none;
     margin-top: 10px;
   }
+
+  #top-header .header-links.pull-left {
+    display: none;
+  }
+  #top-header .header-links.pull-right {
+    display: none;
+  }
+
   .section-tab-nav li {
     margin-top: 10px;
   }
