@@ -10,9 +10,9 @@ from django.template.loader import render_to_string
 
 import datetime
 
-def payments(request):
+def payments(request, order_number):
 
-    order = Order.objects.get(user=request.user, is_ordered=False)
+    order = Order.objects.get(user=request.user, is_ordered=False, order_number=order_number)
     order.is_ordered = True
     order.save()
 
@@ -122,9 +122,10 @@ def place_order(request, total=0, quantity=0):
 
 
 def order_complete(request):
+    order_number = request.GET.get('order_number')
 
     try:
-        order = Order.objects.get(user=request.user, is_ordered=True)
+        order = Order.objects.get(order_number=order_number, is_ordered=True)
         ordered_products = OrderProduct.objects.filter(order_id=order.id)
 
         sub_total = 0
@@ -136,6 +137,7 @@ def order_complete(request):
             'order': order,
             'order_products': ordered_products,
             'sub_total': sub_total,
+
         }
 
         return render(request, 'order/orderComplete.html', context)

@@ -1837,8 +1837,7 @@ i{
 
   .order-list .status {
     border-radius:  0.2rem;
-    background-color: red;
-    padding: 0.2rem 1rem;
+    padding: 0.2rem 0.2rem;
     text-align: center;
 }
 .order-list .status-pending {
@@ -1846,12 +1845,17 @@ i{
       color: #a68b00;
     }
 
-    .order-list .status-paid {
-      background-color: #c8e6c9;
-      color:  #388e3c;
+    .order-list .status-accept {
+      background-color: var(--blue);
+      color: #eee;
     }
 
-    .order-list .status-unpaid {
+    .order-list .status-paid {
+      background-color: #5cb85c;
+      color: #eee;
+    }
+
+    .order-list .status-cancel {
       background-color: #ffcdd2;
       color: #c62828;
     }

@@ -140,10 +140,12 @@ def logout(request):
 # method to render dashboard page
 @login_required(login_url='login')
 def dashboard(request):
+    user = request.user
     orders = Order.objects.filter(user=request.user, is_ordered=True).order_by('-created_at')
     
     context = {
 		'orders': orders,
+        'user': user,
 	}
 
     return render(request, 'account/dashboard.html', context)

@@ -10,7 +10,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<ul class="breadcrumb-tree">
-							<li><a href="#">{{ user.get_username }} Orders</a></li>
+							<li><a href="#">{{ user.first_name }} {{ user.last_name }} Orders</a></li>
 						</ul>
 					</div>
 				</div>
@@ -38,7 +38,21 @@
                 <td>{{order.full_name}}</td>
                 <td>${{order.order_total}}</td>
                 <td>
-                <p class="status status-unpaid">{{order.status}}</p>
+                {% if order.status == 'New' %}
+                    <p class="status status-pending">Processing</p>
+                
+                {% elif order.status == 'Accepted' %}
+                    <p class="status status-accept">Order Accepted</p>
+                
+                {% elif order.status == 'Completed' %}
+                    <p class="status status-paid">Order Delivered</p>
+                
+                {% else %}
+                    <p class="status status-cancel">Order Cancelled</p>
+                
+                {% endif %}
+                
+                
                 </td>
                 <td>{{order.created_at}}</td>
 
